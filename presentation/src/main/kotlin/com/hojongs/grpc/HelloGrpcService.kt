@@ -12,7 +12,7 @@ class HelloGrpcService(
     override fun sayHello(
         request: Mono<HelloRequest>?
     ): Mono<HelloResponse> = helloService.hello()
-        .map (::buildHelloResponse)
+        .map(::buildHelloResponse)
 
     private fun buildHelloResponse(msg: String) = HelloResponse
             .newBuilder()

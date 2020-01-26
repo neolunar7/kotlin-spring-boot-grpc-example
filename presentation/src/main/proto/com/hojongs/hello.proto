@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files = false;
 option java_outer_classname = "proto";
 
-package com.hojongs.grpc;
+package com.hojongs;
 
 message Hello {
     string msg = 1;

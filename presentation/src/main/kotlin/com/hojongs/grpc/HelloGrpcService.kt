@@ -17,7 +17,7 @@ class HelloGrpcService(
     private fun buildHelloResponse(msg: String) = HelloResponse
             .newBuilder()
             .setHello(
-                proto.Hello.newBuilder()
+                HelloProto.Hello.newBuilder()
                     .setMsg(msg)
             )
             .build()

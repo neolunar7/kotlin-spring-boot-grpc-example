@@ -1,5 +1,6 @@
 import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
     kotlin("jvm") version "1.3.61"
@@ -9,6 +10,7 @@ plugins {
     kotlin("plugin.spring") version "1.3.61" apply false
     java
     id("com.google.protobuf") version "0.8.11" apply false
+    id("org.jlleitschuh.gradle.ktlint") version "9.1.0" apply false
 }
 
 allprojects {
@@ -22,12 +24,17 @@ subprojects {
         plugin("kotlin")
         plugin("idea")
         plugin("io.spring.dependency-management")
+        plugin("org.jlleitschuh.gradle.ktlint")
     }
 
     configure<DependencyManagementExtension> {
         imports {
             mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
         }
+    }
+
+    configure<KtlintExtension> {
+        disabledRules.add("import-ordering")
     }
 
     configure<JavaPluginExtension> {

@@ -25,5 +25,4 @@
   - Protocol Buffer (protobuf)
 - JUnit 5
 - Mockk
-- Kotlintest-assertions
 - Ktlint-gradle
